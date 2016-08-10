@@ -1,9 +1,117 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+    h1{
+      color: blue;
+    }
 
+    #flex-container{
+      display: flex;
+      flex-flow: row wrap;
+      margin-bottom: 10px;
+
+    }
+
+
+
+    .sidebar{
+      flex:1;
+      background: tomato;
+      border: 2px solid black;
+      text-align: center;
+      height: 100px;
+      line-height: 100px;
+    }
+
+
+
+    header{
+      flex: 1 100%;
+      background: gold;
+      border: 2px solid black;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+
+    }
+
+    @media all and (max-width: 600px) {
+  /* We tell both sidebars to share a row */
+      .sidebar{
+        flex: 1 100%;
+
+      }
+    }
+
+
+    #grid{
+      display: flex;
+      flex-flow: row wrap;
+      margin-bottom: 10px;
+
+
+    }
+
+    .grid-item{
+
+      background: blue;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+      color: white;
+
+      
+
+
+
+    }
+
+    </style>
   </head>
   <body>
-    
+    <section id = "flex-container">
+      <header>
+        header
+      </header>
+      <header>
+        header
+      </header>
+      <section class = "sidebar">
+        sidebar
+      </section>
+      <section class = "sidebar">
+        sidebar
+      </section>
+      <header>
+        header
+      </header>
+      <section class = "sidebar">
+        sidebar
+      </section>
+      <section class = "sidebar">
+        sidebar
+      </section>
+    </section>
+    <section id = "grid">
+
+      <div class = "grid-item">
+        item
+      </div>
+      <div class = "grid-item">
+        item
+      </div>
+      <div class = "grid-item">
+        item
+      </div>
+      <div class = "grid-item">
+        item
+      </div>
+      <div class = "grid-item">
+        item
+      </div>
+
+    </section>
+
   </body>
 </html>
