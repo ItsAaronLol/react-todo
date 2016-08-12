@@ -1,0 +1,63 @@
+// redux maintains the entire state of your application seperate
+// from your components in a thing called a 'store'. It is nothing else
+// but a plain javascript object
+//
+// What a store looks like:
+
+
+//This is our application state.
+var reduxState = {
+  searchText: 'Dog',
+  showCompleted: false,
+  todos: [{
+    id: '123',
+    text: 'Walk the dog'
+  }]
+};
+/*
+  using this data, we can render everything we need in order to keep the application
+  up to date and respond to user interaction. This state is readonly under redux.
+  In order to modify the state, you have to use actions. Or in the words of a redux
+  developer, you have to dispatch actions that are going to update your state.
+  These actions are very simple objects
+
+  dispatch meaning:
+  - send off to a destination or for a purpose.
+  - deal with (a task or opponent) quickly and efficiently.
+*/
+
+//lets say we wanted to update search text... Create an action
+//search text property with new text
+var action = {
+  type: 'CHANGE_SEARCH_TEXT', //a type that's an uppercase name for this action
+  searchText: 'something' //and values you want to use to handle the action
+}
+
+/*
+Basics:
+- An object that maintains your state
+- And actions that manipulate the state
+- The only way to update your application state is through these actions
+- and these actions can be dispatched from your individual components
+
+The search component can dispatch an action that changes the state
+and the todoList component can say
+"hey, I want to keep track of the todos. If the todos change, give me the fresh
+todos array", and it can render itself as the search component dispatches that action.
+
+Same thing with add todo. Add Todo can dispatch an action called AddTodo, and it could
+dispatch an action with that text property. Once the global store, which is the global
+state gets updated, it's going to automatically update the todo list component
+
+This means our todoApp component is going to get alot more simpler. It's not going
+to need to maintain nearly as many things
+
+
+Your application in redux is a simple object (reduxState)
+When you want to change that object, you dispatch actions (action)
+
+Using these two tools, we can work with react to create applications that have
+reusable components and that don't suck to update
+
+You can use react without redux or redux without react, but they go well together
+*/

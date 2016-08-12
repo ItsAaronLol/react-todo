@@ -1,9 +1,11 @@
 var React = require('react');
+var {connect} = require('react-redux');
 var moment = require('moment');
+var actions = require('actions');
 
-var Todo = React.createClass({
+export var Todo = React.createClass({
   render: function(){
-    var {text, id, completed, createdAt, completedAt} = this.props; //the name matters, order doesn't matter
+    var {text, id, completed, createdAt, completedAt, dispatch} = this.props; //the name matters, order doesn't matter
     var todoClassName = completed ? 'todo todo-completed' : 'todo';
     //{text}: get the text
     //{id}: get the id
@@ -20,7 +22,8 @@ var Todo = React.createClass({
     }
     return (
       <div className={todoClassName} onClick={() => {
-          this.props.onToggle(id);
+        //  this.props.onToggle(id);
+          dispatch(actions.toggleTodo(id));
         }}>
         <div>
             <input type="checkbox" checked={completed}/>
@@ -34,4 +37,14 @@ var Todo = React.createClass({
   }
 });
 
-module.exports = Todo;
+//sets it as the default
+//module.exports =
+export default connect()(Todo);
+
+//connect Todo component to our store
+
+/*
+Todo will need access to dispatch
+By calling connect, we already have access to it
+It will be available on our props
+*/
