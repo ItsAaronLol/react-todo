@@ -21,6 +21,14 @@ export var addTodo = (text) => {
   };
 };
 
+export var addTodos = (todos) => {
+  return {
+    type: 'ADD_TODOS',
+    //todos:todos
+    todos
+  };
+};
+
 //toggleTodo(id)
 
 export var toggleTodo = (id) => {
